@@ -1,0 +1,28 @@
+<div class="list-summary">
+  <span class="list-summary--title">CONTACTS</span>
+  <span class="list-summary--connected-count">
+    {{fa-icon "user"}} {{totalOnline}} of {{fa-icon "users"}} {{source.length}}
+  </span>
+</div>
+
+<div class="list-result">
+  {{#ember-collection
+    classNames="contact-list"
+    items=source
+    cell-layout=(percentage-columns-layout source.length columns itemHeight)
+    scroll-left=scrollLeft scroll-top=scrollTop scroll-change=(action "scrollChange")
+    as |item|
+  }}
+    <div class="contact-item">
+      {{display-avatar url=item.avatar avatarFor=item.name isOnline=item.online}}
+
+      {{contact-info name=item.name job=item.jobTitle}}
+
+      {{actions-bar isOnline=item.online}}
+    </div>
+  {{/ember-collection}}
+
+  <span class="list-result--display-information">
+    from {{firstItemVisible}} to {{lastItemVisible}}
+  </span>
+</div>
