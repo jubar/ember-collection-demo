@@ -65,6 +65,7 @@ body {
   border-radius: 15px;
   color: #fff;
   box-shadow: 0 2px 5px 1px rgba(0,0,0,0.3);
+  opacity: 0;
 }
 
 .contact-list > .ember-view{

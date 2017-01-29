@@ -22,7 +22,9 @@
     </div>
   {{/ember-collection}}
 
-  <span class="list-result--display-information">
-    from {{firstItemVisible}} to {{lastItemVisible}}
-  </span>
+  {{#if showToast}}
+    <span class="list-result--display-information">
+      from {{firstItemVisible}} to {{lastItemVisible}}
+    </span>
+  {{/if}}
 </div>

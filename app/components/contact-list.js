@@ -1,10 +1,12 @@
 import Ember from 'ember';
+import { task, timeout } from 'ember-concurrency';
 
 const { Component, computed } = Ember;
 
 export default Component.extend({
   classNames: ['contact-panel'],
   columns: [100],
+  showToast: false,
   scrollLeft: 0,
   scrollTop: 0,
   firstItemVisible: 1,
@@ -18,6 +20,23 @@ export default Component.extend({
   numberOfColumns: computed('columns.[]', function() {
     return this.get('columns').length;
   }),
+
+  taskHideToast: task(function*() {
+    yield timeout(1500);
+
+    Ember.$('.list-result--display-information').fadeTo(250, 0, () => {
+      this.set('showToast', false);
+    });
+
+    yield timeout(250);
+  }).restartable(),
+
+  taskShowToast: task(function*() {
+    this.set('showToast', true);
+    Ember.$('.list-result--display-information').fadeTo(250, 1);
+
+    yield timeout(250);
+  }).drop(),
 
   actions: {
     scrollChange(scrollLeft, scrollTop) {
@@ -34,6 +53,8 @@ export default Component.extend({
         lastItemVisible: first + last
       });
 
+      this.get('taskShowToast').perform();
+      this.get('taskHideToast').perform();
     }
   }
 });
