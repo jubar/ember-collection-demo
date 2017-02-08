@@ -1,3 +1,11 @@
-{{contact-list
-  source=model 
-}}
+<div style="display: flex; width: 100vw; height: 100vh; align-items: stretch;">
+  <div style="width: 400px; height: 100vh; flex-grow: 0; flex-shrink: 0">
+    {{contact-list
+      source=model
+      onShowFriends=(action "showFriends")
+    }}
+  </div>
+  <div class="contact-panel" style="flex: 1; height: 100vh;">
+    {{friend-list model=friends}}
+  </div>
+</div>

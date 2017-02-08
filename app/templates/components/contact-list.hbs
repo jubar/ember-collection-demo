@@ -18,7 +18,10 @@
 
       {{contact-info name=item.name job=item.jobTitle}}
 
-      {{actions-bar isOnline=item.online}}
+      {{actions-bar
+        isOnline=item.online
+        onShowFriends=(action onShowFriends item.id)
+      }}
     </div>
   {{/ember-collection}}
 

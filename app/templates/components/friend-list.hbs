@@ -1,0 +1,20 @@
+<div class="list-summary">
+  <span class="list-summary--title">MY FRIENDS</span>
+</div>
+
+<div class="list-result separate-vertical">
+  {{#if model}}
+    {{#ember-collection
+      items=model
+      classNames="contact-list"
+      cell-layout=(mixed-grid-layout friendsSizes) as |friend| }}
+      <div class="friend-container" width="{{friend.width}}" height="{{friend.height}}">
+        <img src="{{friend.thumbnail}}"
+          class="friend-container--image"
+          width="{{friend.width}}"
+          height="{{friend.height}}">
+      </div>
+
+    {{/ember-collection}}
+  {{/if}}
+</div>
