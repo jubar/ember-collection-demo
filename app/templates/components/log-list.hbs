@@ -1,0 +1,16 @@
+<div class="list-summary">
+  <span class="list-summary--title">LOGS</span>
+</div>
+
+<div class="list-result separate-vertical">
+  {{#if model}}
+    {{#ember-collection
+      classNames="contact-list"
+      items=model
+      cell-layout=(percentage-columns-layout model.length columns 40)
+      as |log|
+    }}
+      {{log.date}} | {{log.type}}
+    {{/ember-collection}}
+  {{/if}}
+</div>

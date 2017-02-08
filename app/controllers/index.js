@@ -15,13 +15,24 @@ export default Controller.extend({
     return sizes;
   }),
 
+  logs: [],
 
   actions: {
     showFriends(id) {
       let person = this.get('store').peekRecord('person', id);
       person.get('friends').then((data) => {
-        this.set('friends', data);
-      })
+        this.setProperties({
+          friends: data,
+          logs: []
+        });
+      });
+    },
+
+    showLogs(id) {
+      let friend = this.get('store').peekRecord('friend', id);
+      friend.get('logs').then((data) => {
+        this.set('logs', data)
+      });
     }
   }
 });

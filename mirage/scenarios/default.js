@@ -1,10 +1,18 @@
 export default function(server) {
-  for (var i = 0; i <= 3; i++) {
-    let person = server.create('person');
-    server.createList('friend', 300, {
-      personId: person.id
-    });
-  }
+
+  let person = server.create('person');
+
+  let friend = server.create('friend', {
+    person
+  });
+
+  let logs = server.createList('log', 700, {
+    friend
+  });
+
+  server.createList('friend', 300, {
+    person
+  });
 
   server.createList('person', 1000);
 }

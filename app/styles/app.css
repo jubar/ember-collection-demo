@@ -20,12 +20,17 @@ body {
   width: 100%;
 }
 
-.friends-panel {
+.friends-panel, .logs-panel {
   display: flex;
   flex-direction: column;
   align-items: stretch;
   height: 100vh;
   width: 250px;
+}
+
+.logs-panel {
+  width: auto;
+  flex: 1;
 }
 
 .list-summary {

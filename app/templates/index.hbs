@@ -5,7 +5,14 @@
       onShowFriends=(action "showFriends")
     }}
   </div>
-  <div class="contact-panel" style="flex: 1; height: 100vh;">
-    {{friend-list model=friends}}
+  <div class="contact-panel" style="flex: 1; height: 100vh; display: flex; flex-direction: row; background-color: #ececec;">
+    {{friend-list
+      model=friends
+      onShowLogs=(action "showLogs")
+    }}
+
+    {{log-list
+      model=logs
+    }}
   </div>
 </div>
