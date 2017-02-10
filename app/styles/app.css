@@ -235,3 +235,14 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.log-row {
+  height: 40px;
+  line-height: 40px;
+  overflow: hidden;
+  background-color: #ececec;
+}
+
+.log-row .log-cell {
+  padding: 0 5px;
+}

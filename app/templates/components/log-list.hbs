@@ -10,7 +10,11 @@
       cell-layout=(percentage-columns-layout model.length columns 40)
       as |log|
     }}
-      {{log.date}} | {{log.type}}
+      <div class="log-row">
+        <span class="log-cell" style="width: 100px">{{log.date}}</span>
+        <span class="log-cell" style="width: 100px">{{log.type}}</span>
+        <span class="log-cell">{{log.status}}</span>
+      </div>
     {{/ember-collection}}
   {{/if}}
 </div>
